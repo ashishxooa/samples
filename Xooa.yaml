@@ -7,7 +7,7 @@
 #     Name :               -> Default name of the smart contract App after installation in Xooa Platform [Optional Paramater]
 #     Description :        -> Default description of the App in Xooa Platform [Optional Parameter]
 #     path:                -> Path to the smart contract directory relative to Repo root
-#     language:            -> Language of smart contract source code. Options are node and go
+#     language:            -> Language of smart contract source code. Options are node, java and go
 #     README:              -> Path to the documentation of the smart contract App [Optional Parameter]
 
 Apps:
@@ -17,21 +17,47 @@ Apps:
     path: /get-set/smartcontract
     language: go
     README: https://github.com/Xooa/samples/blob/master/get-set/README.md
-  Xooa-SmartThings:
-    Name: SmartThings Integration
-    Description: Xooa SmartThings Smart Contract
-    path: /smartthings/smartcontract/
+  Xooa-Marbles:
+    Name: Marbles
+    Description: Xooa Marbles
+    path: /marbles/smartcontract
     language: go
-    README: https://github.com/Xooa/samples/blob/master/smartthings/README.md
-  Xooa-zapier:
-    Name: Zapier Integration
-    Description: Xooa Zapier Smart Contract
-    path: /zapier/smartcontract/
-    language: go
-    README: https://github.com/Xooa/samples/blob/master/zapier/README.md
-  Xooa-QuickBooks:
-    Name: QuickBooks Integration
-    Description: Xooa QuickBooks Smart Contract
-    path: /quickbooks/smartcontract/
-    language: go
-    README: https://github.com/Xooa/samples/blob/master/quickbooks/README.md
+  Xooa-Balance-Transfer-Node:
+    Name: Balance Transfer
+    Description: Xooa Balance Transfer
+    path: /balance-transfer-node
+    language: node
+    InitArgs: "[\"a\", \"200\", \"b\",\"100\"]"
+    FunctionAndArgsDefinitions:
+    - functionName: invoke
+      arguments:
+      - name: From
+        description: Account to be debited
+      - name: To
+        description: Account to be credited
+      - name: Amount
+        description: Amount to be transferred
+    - functionName: delete
+      arguments:
+      - name: Account
+        description: Account to be deleted
+  Xooa-Balance-Transfer-Java:
+    Name: Balance Transfer
+    Description: Xooa Balance Transfer
+    path: /balance-transfer-java
+    language: java
+    InitArgs: "[\"a\", \"200\", \"b\",\"100\"]"
+  Xooa-Ethereum-Get-Set:
+    Name: Ethereum Smart Contract
+    Description: Solidity Get Set Smart Contract for Ethereum
+    path: /ethereum/smartcontract/GetSetContract.sol
+    language: solidity
+    README: https://github.com/Xooa/samples/blob/master/ethereum/README.md
+  Xooa-SupplyChain-Truffle:
+    Name: Supply Chain Smart Contract
+    Description: Truffle Framework Supply chain Smart Contract
+    path: /truffle-supplychain/Solidity/
+    mainSolFile: SupplyChainLogContract
+    language: solidity
+    truffle: true
+    README: https://github.com/Xooa/samples/blob/master/README.md
